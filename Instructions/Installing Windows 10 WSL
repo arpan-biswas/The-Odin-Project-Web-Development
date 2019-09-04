@@ -1,0 +1,39 @@
+Step 1: Install WSL
+
+Microsoft has made installing WSL super simple.
+
+    Open your Start menu and search for “Microsoft Store”. Open the Store.
+    Enter “Ubuntu” in the search field of the Store.
+    Click on the orange “Ubuntu 18.04” button and then click “Get”.
+
+This will install WSL on your computer. The process will take about 10 minutes to complete, depending on your internet connection.
+
+Note: If you run into an error, follow the directions "https://docs.microsoft.com/en-us/windows/wsl/install-win10" to enable and install WSL.
+Step 2: Start WSL
+
+WSL is nothing more than a Linux terminal inside Windows. To start the program, simply open your Start menu and search for “Ubuntu 18.04”. The first time you run the program, you may get a message that says, “Installing. This may take a few minutes…” When it finishes, you will be asked to create a new username and password that will be used to log into WSL.
+Step 3: Set Up Symbolic Link
+
+When Ubuntu was set up, your Windows file system (C:\ drive) was mapped to the /mnt directory in Ubuntu. To make your life much easier, we are going to set up a shortcut between your C:\ drive and your “Home” folder inside WSL.
+Step 3.1: Create a Projects Directory
+
+You can choose to put your project files anywhere you want, but to make your life easier, we recommend adding a Projects folder inside your Documents folder.
+
+From inside the Ubuntu terminal, type:
+
+mkdir /mnt/c/Users/<Your Windows Username>/Documents/Projects
+
+Be sure to replace <Your Windows Username> with your Windows username in the above code.
+Step 3.2: Create the Symbolic Link
+
+Next, we’re going to establish a link to connect this new Projects folder to your WSL “Home” directory. This is important for many behind-the-scenes processes.
+
+Inside the Ubuntu terminal, type:
+
+ln -s /mnt/c/Users/<your windows user name>/Documents/Projects ~/Projects
+
+Important Notes
+
+    Any projects created from the WSL terminal need to be placed inside the Projects directory.
+
+    The WSL program files are well hidden, but it’s super important that you do not edit these files from Windows. Altering these files will cause serious problems with your Ubuntu installation and possibly with your Windows installation.
